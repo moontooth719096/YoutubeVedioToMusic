@@ -6,13 +6,17 @@ using Google.Apis.YouTube.v3;
 using Google.Apis.YouTube.v3.Data;
 using NAudio.Lame;
 using NAudio.Wave;
+using System.Text;
 using YoutubeExplode;
 using YoutubeExplode.Videos.Streams;
 using youtubetomusic.Services;
 
+//設定console輸出文字為UTF8
+Console.OutputEncoding = Encoding.UTF8;
 Console.WriteLine("YouTube Data API: Search");
 Console.WriteLine("========================");
 YoutubeListDownloadService service = new YoutubeListDownloadService();
+YoutubeClientVerDownloadService service2 = new YoutubeClientVerDownloadService();
 while (true)
 {
     
@@ -24,7 +28,7 @@ while (true)
         PlaylistId = Console.ReadLine();
     }
 
-    await service.DownloadAsync(PlaylistId);
+    await service2.DownloadAsync(PlaylistId);
 }
 
 
